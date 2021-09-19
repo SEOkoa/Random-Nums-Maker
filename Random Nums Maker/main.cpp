@@ -25,19 +25,20 @@ int main(int argc, const char * argv[]) {
     scanf (" %d", &knd);
     
     for (int i = 0; i < knd; i++) {
+        notOverlap:
         array[i] = rand() % 100;
         
         if( array[i] == 0) {
-            i--;
-            cout << "0이 입력되어 i 재시도" <<endl;
-            continue;
+            
+            cout << "0이 입력되어 i 재시도" <<endl; // 정렬 프로그램은 0을 입력 종료값으로 받기 때문에 0이 중간에 나와서는 안됨.
+            goto notOverlap;
         }
         
-        for (int j = 0; j < i - 1; j++) {
+        for (int j = 0; j < i; j++) {
             
             if ( array[i] == array[j] ) {
                 cout << "비교값: " << array[i] << " 검사중인 값(위치:  "  << i << " )" << array[j] <<" 중복 숫자 발견 " <<endl;
-                i--;
+                goto notOverlap;
             }
         }
     }
@@ -46,7 +47,7 @@ int main(int argc, const char * argv[]) {
         cout << array[i] << " ";
     }
     
-    cout << "0";
+    cout << "0";        // 입력종료값 0 추가
 
     
     for ( int i = 0; i < knd; i ++) {
