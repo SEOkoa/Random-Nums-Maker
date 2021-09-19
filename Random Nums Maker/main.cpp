@@ -36,11 +36,9 @@ int main(int argc, const char * argv[]) {
         for (int j = 0; j < i - 1; j++) {
             
             if ( array[i] == array[j] ) {
-                cout << "비교중인 값 " << array[i] << " 배열 속 값(위치:  "  << i << " )" << array[j] <<" 중복 숫자 발견 " <<endl;
+                cout << "비교값: " << array[i] << " 검사중인 값(위치:  "  << i << " )" << array[j] <<" 중복 숫자 발견 " <<endl;
                 i--;
-                j--;
             }
-               
         }
     }
     
@@ -49,7 +47,19 @@ int main(int argc, const char * argv[]) {
     }
     
     cout << "0";
-    cout << endl;
+
+    
+    for ( int i = 0; i < knd; i ++) {
+        
+        if ( i + 1 > 100 )
+            break;
+        
+        if (array[i] == array[i + 1]) {
+            printf ("\n중복 숫자가 있습니다. %d 번째 %d와 %d번째 %d.\n", i, array[i], i + 1, array[ i + 1 ]);
+        }
+    }
+    
+        cout << endl;
 
 
 
